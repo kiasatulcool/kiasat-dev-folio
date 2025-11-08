@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Button } from "./ui/button";
+import { Github, Linkedin, Mail, Phone, Sparkles } from "lucide-react";
 
 interface HeroProps {
   onViewProjects: () => void;
@@ -8,75 +8,116 @@ interface HeroProps {
 
 export const Hero = ({ onViewProjects, onContactClick }: HeroProps) => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-b from-hero-from to-hero-to">
-      <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-        <div className="mb-8 flex justify-center">
-          <div className="w-32 h-32 rounded-full bg-primary/20 flex items-center justify-center animate-float">
-            <div className="w-28 h-28 rounded-full bg-primary/40 flex items-center justify-center">
-              <span className="text-5xl font-bold text-primary">MK</span>
+    <section 
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+    >
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f0f] via-[#1a002b] to-background">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px] animate-pulse delay-1000" />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: Text Content */}
+          <div className="space-y-8 animate-fade-in-up">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-primary">
+                <Sparkles className="w-5 h-5" />
+                <span className="text-sm font-medium tracking-wide">WELCOME TO MY PORTFOLIO</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <span className="block">👋 Hi, I'm</span>
+                <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
+                  MD. Kiasat ul Mabood
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
+                Full-Stack Developer | HTML • CSS • Python • Java
+              </p>
+              
+              <p className="text-lg text-foreground/80 max-w-xl">
+                I build powerful and elegant web experiences that blend creativity with clean code.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <Button
+                size="lg"
+                onClick={onViewProjects}
+                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-lg px-8"
+              >
+                🚀 View My Projects
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={onContactClick}
+                className="border-primary/50 hover:border-primary text-lg px-8"
+              >
+                📬 Contact Me
+              </Button>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 pt-4">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:kiasatulmabood@gmail.com"
+                className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+              <a
+                href="tel:+917439938849"
+                className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all"
+                aria-label="Phone"
+              >
+                <Phone className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right: Illustration */}
+          <div className="hidden lg:flex justify-center animate-float">
+            <div className="relative">
+              <div className="w-96 h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-2xl absolute inset-0 animate-pulse" />
+              <div className="relative z-10 w-96 h-96 flex items-center justify-center">
+                <div className="text-9xl">💻</div>
+              </div>
             </div>
           </div>
         </div>
-        
-        <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-          MD. Kiasat ul Mabood
-        </h1>
-        
-        <p className="text-xl md:text-2xl text-muted-foreground mb-6">
-          Full-Stack Developer — HTML • CSS • Python • Java
-        </p>
-        
-        <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-8">
-          I build fast, responsive web apps and practical tools. I love clean code and solving real problems with elegant solutions.
-        </p>
-        
-        <div className="flex flex-wrap gap-4 justify-center mb-8">
-          <Button 
-            size="lg" 
-            onClick={onViewProjects}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8"
-          >
-            View Projects
-          </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            onClick={onContactClick}
-            className="border-primary text-primary hover:bg-primary/10"
-          >
-            Contact Me
-          </Button>
-        </div>
-        
-        <div className="flex gap-4 justify-center">
-          <a 
-            href="https://github.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-card hover:bg-primary/20 transition-colors"
-          >
-            <Github className="w-6 h-6" />
-          </a>
-          <a 
-            href="https://linkedin.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="p-3 rounded-full bg-card hover:bg-primary/20 transition-colors"
-          >
-            <Linkedin className="w-6 h-6" />
-          </a>
-          <a 
-            href="mailto:kiasatulmabood@gmail.com"
-            className="p-3 rounded-full bg-card hover:bg-primary/20 transition-colors"
-          >
-            <Mail className="w-6 h-6" />
-          </a>
-          <a 
-            href="tel:+917439938849"
-            className="p-3 rounded-full bg-card hover:bg-primary/20 transition-colors"
-          >
-            <Phone className="w-6 h-6" />
-          </a>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-primary rounded-full" />
         </div>
       </div>
     </section>

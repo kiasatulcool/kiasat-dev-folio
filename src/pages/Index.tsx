@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectModal } from "@/components/ProjectModal";
@@ -26,6 +27,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Navbar />
       <Hero onViewProjects={scrollToProjects} onContactClick={scrollToContact} />
       
       <section id="projects" className="py-20 px-4 bg-card">
