@@ -52,14 +52,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          <button
-            onClick={() => scrollToSection("home")}
-            className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity"
-          >
-            MK
-          </button>
-
+        <div className="flex items-center justify-between md:justify-center h-16 w-full">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -83,7 +76,7 @@ export const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-2 ml-auto">
             <Button
               variant="ghost"
               size="icon"
