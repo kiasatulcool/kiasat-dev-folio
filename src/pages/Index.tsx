@@ -5,6 +5,7 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectModal } from "@/components/ProjectModal";
 import { Skills } from "@/components/Skills";
 import { ContactForm } from "@/components/ContactForm";
+import { Footer } from "@/components/Footer";
 import { projects } from "@/data/projects";
 import { Project } from "@/types/project";
 
@@ -53,14 +54,7 @@ const Index = () => {
 
       <Skills />
       <ContactForm />
-      
-      <footer className="py-8 px-4 bg-card border-t border-border">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-muted-foreground">
-            © {new Date().getFullYear()} MD. Kiasat ul Mabood. Built with React, TypeScript & TailwindCSS.
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
       <ProjectModal
         project={selectedProject}
