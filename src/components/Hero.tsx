@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import { Github, Linkedin, Mail, Phone, Sparkles } from "lucide-react";
+import kaliDragonImg from "@/assets/kali-dragon.jpg";
 
 interface HeroProps {
   onViewProjects: () => void;
@@ -12,8 +13,17 @@ export const Hero = ({ onViewProjects, onContactClick }: HeroProps) => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
     >
-      {/* Animated gradient background */}
+      {/* Animated gradient background with Kali dragon */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f0f] via-[#1a002b] to-background">
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `url(${kaliDragonImg})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px] animate-pulse delay-1000" />
@@ -31,7 +41,7 @@ export const Hero = ({ onViewProjects, onContactClick }: HeroProps) => {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="block">👋 Hi, I'm</span>
+                <span className="block">Hi, I'm</span>
                 <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
                   MD. Kiasat ul Mabood
                 </span>

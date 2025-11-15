@@ -1,6 +1,7 @@
 import { Project } from "@/types/project";
 import petConnectImg from "@/assets/pet-connect.jpg";
 import tutorConnectImg from "@/assets/tutor-connect.jpg";
+import stayTunedImg from "@/assets/stay-tuned.jpg";
 
 export const projects: Project[] = [
   {
@@ -48,6 +49,6 @@ export const projects: Project[] = [
       "Each feature should highlight key functionality",
       "Make it compelling and clear"
     ],
-    imageUrl: "/placeholder.svg"
+    imageUrl: stayTunedImg
   }
 ];
