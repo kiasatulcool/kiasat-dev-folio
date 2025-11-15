@@ -14,7 +14,7 @@ export const Hero = ({ onViewProjects, onContactClick }: HeroProps) => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
     >
       {/* Animated gradient background with Kali dragon */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f0f] via-[#1a002b] to-background">
+      <div className="absolute inset-0 bg-gradient-to-br from-hero-from via-[hsl(var(--hero-gradient-via))] to-hero-to">
         <div 
           className="absolute inset-0 opacity-10"
           style={{
