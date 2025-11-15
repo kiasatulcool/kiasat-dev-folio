@@ -8,41 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 6%;
+    --background: 220 45% 12%;
     --foreground: 0 0% 98%;
 
-    --card: 270 100% 8%;
+    --card: 220 40% 16%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 270 100% 8%;
+    --popover: 220 40% 16%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 355 78% 65%;
+    --primary: 355 100% 70%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 100% 8%;
+    --secondary: 220 40% 16%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 260 50% 12%;
-    --muted-foreground: 240 10% 65%;
+    --muted: 220 35% 20%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 220 78% 65%;
+    --accent: 190 65% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 260 40% 15%;
-    --input: 260 40% 15%;
-    --ring: 355 78% 65%;
+    --border: 220 30% 22%;
+    --input: 220 30% 22%;
+    --ring: 355 100% 70%;
 
     --radius: 0.75rem;
     
     /* Custom portfolio tokens */
-    --hero-gradient-from: 0 0% 6%;
-    --hero-gradient-to: 270 100% 8%;
-    --hero-gradient-via: 270 100% 5%;
-    --skill-bar-bg: 260 50% 12%;
+    --hero-gradient-from: 220 45% 12%;
+    --hero-gradient-to: 190 50% 20%;
+    --hero-gradient-via: 220 45% 15%;
+    --skill-bar-bg: 220 35% 20%;
     --success: 142 76% 36%;
     --success-foreground: 0 0% 98%;
   }
