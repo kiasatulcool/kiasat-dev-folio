@@ -1,4 +1,6 @@
 import { Project } from "@/types/project";
+import petConnectImg from "@/assets/pet-connect.jpg";
+import tutorConnectImg from "@/assets/tutor-connect.jpg";
 
 export const projects: Project[] = [
   {
@@ -16,7 +18,7 @@ export const projects: Project[] = [
       "Responsive design for all devices"
     ],
     githubUrl: "https://github.com",
-    imageUrl: "/placeholder.svg"
+    imageUrl: petConnectImg
   },
   {
     id: "tutor-connect",
@@ -33,7 +35,7 @@ export const projects: Project[] = [
       "Rating and review system"
     ],
     githubUrl: "https://github.com",
-    imageUrl: "/placeholder.svg"
+    imageUrl: tutorConnectImg
   },
   {
     id: "template-project",
