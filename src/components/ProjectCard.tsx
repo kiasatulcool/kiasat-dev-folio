@@ -11,25 +11,31 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
   return (
-    <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 bg-card border-border overflow-hidden">
+    <Card className="group hover:shadow-[0_0_40px_rgba(168,85,247,0.4)] transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] bg-card border-border overflow-hidden relative before:absolute before:inset-0 before:bg-gradient-to-r before:from-primary/0 before:via-primary/10 before:to-accent/10 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500">
       <div className="relative overflow-hidden bg-muted h-48">
         <img 
           src={project.imageUrl} 
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
       </div>
       
       <CardHeader>
-        <CardTitle className="text-2xl text-foreground">{project.title}</CardTitle>
-        <CardDescription className="text-muted-foreground">{project.description}</CardDescription>
+        <CardTitle className="text-2xl text-foreground group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
+        <CardDescription className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">{project.description}</CardDescription>
       </CardHeader>
       
       <CardContent className="space-y-4">
         <div className="flex flex-wrap gap-2">
-          {project.tech.map((tech) => (
-            <Badge key={tech} variant="secondary" className="bg-primary/20 text-primary border-primary/30">
+          {project.tech.map((tech, index) => (
+            <Badge 
+              key={tech} 
+              variant="secondary" 
+              className="bg-primary/20 text-primary border-primary/30 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300"
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
               {tech}
             </Badge>
           ))}
