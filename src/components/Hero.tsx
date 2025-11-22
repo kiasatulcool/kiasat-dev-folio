@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 import { Github, Linkedin, Mail, Phone, Sparkles } from "lucide-react";
-import kaliDragonImg from "@/assets/kali-dragon.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 interface HeroProps {
   onViewProjects: () => void;
@@ -13,17 +13,18 @@ export const Hero = ({ onViewProjects, onContactClick }: HeroProps) => {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
     >
-      {/* Animated gradient background with Kali dragon */}
+      {/* Video background */}
       <div className="absolute inset-0 bg-gradient-to-br from-hero-from via-[hsl(var(--hero-gradient-via))] to-hero-to">
-        <div 
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `url(${kaliDragonImg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/60" />
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[100px] animate-pulse delay-1000" />
