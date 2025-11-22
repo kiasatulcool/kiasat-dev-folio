@@ -1,6 +1,6 @@
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Skill {
   name: string;
@@ -24,19 +24,28 @@ const skills: Skill[] = [
 ];
 
 export const Skills = () => {
-  const [animatedSkills, setAnimatedSkills] = useState<Record<string, number>>({});
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [animatedValues, setAnimatedValues] = useState<Record<string, number>>({});
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const animated: Record<string, number> = {};
-      skills.forEach(skill => {
-        animated[skill.name] = skill.level;
-      });
-      setAnimatedSkills(animated);
-    }, 200);
+  const handleMouseEnter = (skillName: string, maxLevel: number) => {
+    setHoveredSkill(skillName);
+    let currentValue = 0;
+    const increment = maxLevel / 30; // 30 frames to reach max
+    
+    const interval = setInterval(() => {
+      currentValue += increment;
+      if (currentValue >= maxLevel) {
+        currentValue = maxLevel;
+        clearInterval(interval);
+      }
+      setAnimatedValues(prev => ({ ...prev, [skillName]: Math.round(currentValue) }));
+    }, 16); // ~60fps
+  };
 
-    return () => clearTimeout(timer);
-  }, []);
+  const handleMouseLeave = (skillName: string) => {
+    setHoveredSkill(null);
+    setAnimatedValues(prev => ({ ...prev, [skillName]: 0 }));
+  };
 
   const categories = [...new Set(skills.map(s => s.category))];
 
@@ -57,14 +66,23 @@ export const Skills = () => {
               {skills
                 .filter(skill => skill.category === category)
                 .map((skill) => (
-                  <div key={skill.name} className="space-y-2">
+                  <div 
+                    key={skill.name} 
+                    className="space-y-2 cursor-pointer transition-transform hover:scale-105"
+                    onMouseEnter={() => handleMouseEnter(skill.name, skill.level)}
+                    onMouseLeave={() => handleMouseLeave(skill.name)}
+                  >
                     <div className="flex justify-between items-center">
-                      <span className="text-foreground font-medium">{skill.name}</span>
-                      <span className="text-muted-foreground">{skill.level}%</span>
+                      <span className={`font-medium transition-colors ${hoveredSkill === skill.name ? 'text-primary' : 'text-foreground'}`}>
+                        {skill.name}
+                      </span>
+                      <span className={`transition-all duration-300 ${hoveredSkill === skill.name ? 'text-primary font-semibold scale-110' : 'text-muted-foreground'}`}>
+                        {animatedValues[skill.name] || 0}%
+                      </span>
                     </div>
                     <Progress 
-                      value={animatedSkills[skill.name] || 0} 
-                      className="h-2 bg-muted"
+                      value={animatedValues[skill.name] || 0} 
+                      className="h-2 bg-muted transition-all duration-300"
                     />
                   </div>
                 ))}
