@@ -146,14 +146,6 @@ export const Hero = ({ onViewProjects, onContactClick }: HeroProps) => {
                   >|</span>
                 </span>
               </h1>
-              
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium">
-                Full-Stack Developer | HTML • CSS • Python • Java
-              </p>
-              
-              <p className="text-lg text-foreground/80 max-w-xl">
-                I build powerful and elegant web experiences that blend creativity with clean code.
-              </p>
             </div>
 
             {/* CTA Buttons */}
