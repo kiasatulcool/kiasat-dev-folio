@@ -131,8 +131,10 @@ export const Hero = ({ onViewProjects, onContactClick }: HeroProps) => {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="block mb-2">Hi,</span>
-                <span className="block">
+                <span className="block mb-3 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent text-6xl md:text-7xl lg:text-8xl">
+                  MD Kiasatul Mabood
+                </span>
+                <span className="block text-3xl md:text-4xl lg:text-5xl">
                   I'm{" "}
                   <span 
                     ref={animatedTextRef}
